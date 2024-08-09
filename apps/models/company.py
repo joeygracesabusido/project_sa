@@ -22,7 +22,12 @@ class CompanyName(SQLModel, table=True):
     __tablename__ = 'companyName'
     id: Optional[int] = Field(default=None, primary_key=True)
     company_name: str = Field(index=True, unique=True)
+    type_of_company: str = Field(default=None)
+    address: str = Field(default=None)
+    contact_person: str = Field(default=None)
+    email_add: str = Field(default=None)
     date_created: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    
 
     __table_args__ = (Index("idx_companyName_unique", "company_name", unique=True),)
 
