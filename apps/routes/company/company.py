@@ -18,7 +18,7 @@ class Company(BaseModel):
     address: str 
     contact_person: str 
     email_add: str 
-    date_created: Optional[datetime] = None
+    # date_created: Optional[datetime] = None
    
     # date_created: Optional[datetime]
 
@@ -32,10 +32,9 @@ async def api_insert_company(items:Company):
     # if username == 'joeysabusido' or username == 'eliza' or username == 'drdc-admin':
     try:
     
-        CompanyNameComp.insert_company_name(company_name=items.company_name,
-                                            type_of_company=items.type_of_company,
-                                            address=items.address,contact_person=items.contact_person,
-                                            email_add=items.email_add)
+        
+        CompanyNameComp.insert_company_name(**items.dict())
+
         return {"message": "Data has been saved"}
     except Exception as e:
         error_message = str(e)
