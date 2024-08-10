@@ -6,7 +6,8 @@ from starlette.responses import PlainTextResponse
 # from .routes.admin import api
 # from .routes.login import login_router
 # from apps.routes.admin import api
-from apps.routes.login import login_router
+from apps.routes.login.login import login_router
+from apps.routes.company.company import company_router
 # from apps.routes.inventory import api_invt
 # from apps.routes.job_order_temp import api_jo_temp
 # from apps.routes.job_order import api_job_order
@@ -31,6 +32,7 @@ app.add_middleware(
 
 
 app.include_router(login_router)
+app.include_router(company_router, tags=['company'])
 # app.include_router(api_inventory)
 # app.include_router(api_jo_temp)
 # app.include_router(api_invt, tags=['inventory'])

@@ -1,6 +1,6 @@
 from sqlmodel import Field, Session,  create_engine,select,func,funcfilter,within_group,Relationship,Index
 
-from models.company import CompanyName
+from apps.models.company import CompanyName
 from databases.database import connectionDB
 from typing import Optional
 from datetime import date, datetime

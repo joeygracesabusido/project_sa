@@ -7,3 +7,5 @@ pymongo
 python-multipart
 strawberry-graphql
 gunicorn
+sqlmodel
+PyMySQL==1.1.0
