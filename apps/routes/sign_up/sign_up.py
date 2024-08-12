@@ -10,16 +10,15 @@ from datetime import datetime, timedelta
 
 
 
-login_router = APIRouter(include_in_schema=False)
+temp_login_router = APIRouter(include_in_schema=False)
 templates = Jinja2Templates(directory="apps/templates")
 
 
 
 
-@login_router.get("/login/", response_class=HTMLResponse)
+@temp_login_router.get("/-temp-sign-up/", response_class=HTMLResponse)
 async def api_login(request: Request):
-    return templates.TemplateResponse("login/login.html", {"request":request}) 
+    return templates.TemplateResponse("sign_up/signUp.html", {"request":request}) 
 
 
 
-    

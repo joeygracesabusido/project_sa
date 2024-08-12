@@ -8,6 +8,8 @@ from starlette.responses import PlainTextResponse
 # from apps.routes.admin import api
 from apps.routes.login.login import login_router
 from apps.routes.company.company import company_router
+from apps.routes.sign_up.sign_up import temp_login_router
+from apps.routes.dashboard.dashboard_route import dashboard_router
 # from apps.routes.inventory import api_invt
 # from apps.routes.job_order_temp import api_jo_temp
 # from apps.routes.job_order import api_job_order
@@ -32,7 +34,12 @@ app.add_middleware(
 
 
 app.include_router(login_router)
+app.include_router(temp_login_router)
+app.include_router(dashboard_router)
+
 app.include_router(company_router, tags=['company'])
+app.include_router(temp_login_router)
+
 # app.include_router(api_inventory)
 # app.include_router(api_jo_temp)
 # app.include_router(api_invt, tags=['inventory'])
